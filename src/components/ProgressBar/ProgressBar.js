@@ -63,8 +63,6 @@ const ProgressContainer = styled.div`
 const ProgressWrapper = styled.div`
   width: 100%;
   height: 100%;
-  margin-top: auto;
-  margin-bottom: auto;
   border-radius: 4px;
   overflow: hidden;
 `;
