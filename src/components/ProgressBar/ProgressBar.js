@@ -52,12 +52,11 @@ const ProgressBar = ({ value, size }) => {
 };
 
 const ProgressContainer = styled.div`
-  width: 370px;
   height: var(--height);
   padding: var(--padding);
   border-radius: var(--borderRadius);
   background: ${COLORS.transparentGray15};
-  box-shadow: inset 0px 2px 4px rgba(128, 128, 128, 0.35);
+  box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
   overflow: hidden;
 `;
 
