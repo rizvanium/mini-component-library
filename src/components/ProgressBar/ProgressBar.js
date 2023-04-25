@@ -46,6 +46,7 @@ const ProgressBar = ({ value, size }) => {
       <ProgressWrapper>
         <Progress value={sanitizedValue + "%"} />
       </ProgressWrapper>
+      <VisuallyHidden>{sanitizedValue}%</VisuallyHidden>
     </ProgressContainer>
   );
 };
