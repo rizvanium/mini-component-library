@@ -8,54 +8,64 @@ import { getDisplayedValue } from "./Select.helpers";
 const Select = ({ label, value, onChange, children }) => {
   const displayedValue = getDisplayedValue(value, children);
   return (
-    <SelectorContainer>
-      <TextContent>{displayedValue}</TextContent>
-      <TextContent>
-        <Icon id="chevron-down" />
-      </TextContent>
+    <SelectContainer>
       <SystemDefaultSelect value={value} onChange={onChange}>
         {children}
       </SystemDefaultSelect>
-    </SelectorContainer>
+      <SelectorContent>
+        {displayedValue}
+        <IconWrapper>
+          <Icon id="chevron-down" size={24} />
+        </IconWrapper>
+      </SelectorContent>
+    </SelectContainer>
   );
 };
 
+const SelectContainer = styled.div`
+  position: relative;
+  width: max-content;
+`;
+
 const SystemDefaultSelect = styled.select`
   position: absolute;
-  background: transparent;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
-  appearance: none;
   opacity: 0;
+  width: 100%;
+  height: 100%;
+  appearance: none;
 `;
 
-const TextContent = styled.div`
-  display: inline-block;
-
-`;
-
-const SelectorContainer = styled.div`
-  color: ${COLORS.gray700};
+const SelectorContent = styled.div`
   font-size: 1rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  background: ${COLORS.transparentGray15};
-  width: fit-content;
-  height: 43px;
+  padding: 12px 16px;
+  padding-right: 52px;
   border-radius: 8px;
-  padding: 12px 16px 12px 16px;
+  color: ${COLORS.gray700};
+  background: ${COLORS.transparentGray15};
 
-  &:hover {
+  ${SystemDefaultSelect}:focus + & {
+    /* works on all browsers */
+    outline: 1px dotted #212121;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  ${SystemDefaultSelect}:hover + & {
     color: ${COLORS.black};
   }
+`;
 
-  &:focus {
-    outline: 2px solid black;
-  }
+const IconWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
 `;
 
 export default Select;
