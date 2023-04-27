@@ -22,7 +22,7 @@ const SIZES = {
 };
 
 const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
-  const iconStrokeWidth = size === "large" ? "2px" : "1px";
+  const iconStrokeWidth = size === "large" ? 2 : 1;
   const iconSize = size === "large" ? "24px" : "16px";
   const styles = SIZES[size];
 
